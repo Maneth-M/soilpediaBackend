@@ -39,11 +39,16 @@ class plantSerializer(serializers.ModelSerializer):
         fields = (
             'plantId',
             'plantName',
+            'wateringLevel',
+            'wateringFrequency',
+            'fertilizers',
+            'diseases',
+
         )
     validators = [
         UniqueTogetherValidator(
             queryset=Plant.objects.all(),
-            fields=['plantName', 'plantId']
+            fields=['plantName', 'plantId', 'wateringLevel', 'wateringFrequency', 'fertilizers', 'diseases']
         )
     ]
 
@@ -66,5 +71,3 @@ class soilSerializer(serializers.ModelSerializer):
             fields=['soilId', 'soilName', 'plants']
         )
     ]
-
-
