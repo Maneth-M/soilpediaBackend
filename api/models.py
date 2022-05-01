@@ -10,6 +10,10 @@ def idgen():
 class Plant(models.Model):
     plantId = models.CharField(max_length=20, default=idgen,primary_key=True)
     plantName = models.CharField(max_length=20, default=" ")
+    wateringLevel = models.CharField(max_length=20, default=" ")
+    wateringFrequency = models.CharField(max_length=20, default=" ")
+    fertilizers = models.TextField(default=" ")
+    diseases = models.TextField(default=" ")
 
     def __str__(self):
         return self.plantName
